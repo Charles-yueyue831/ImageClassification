@@ -28,7 +28,8 @@
     "lr_decay": 0.2
   },
   "data_config": {
-    "dataset": "CIFAR10"
+    "dataset": "CIFAR10",
+    "cifar_path": "./cifar"
   },
   "run_config": {
     "seed": 17,

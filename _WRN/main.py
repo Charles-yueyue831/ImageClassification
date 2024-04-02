@@ -73,6 +73,9 @@ def parse_args():
     parser.add_argument('--milestones', type=str, default='[60, 120, 160]')  # 学习率衰减的epoch数
     parser.add_argument('--lr_decay', type=float, default=0.2)  # 学习率衰减系数
 
+    # data config
+    parser.add_argument('--cifar_path', type=str, default="./cifar")  # cifar数据集路径
+
     # TensorBoard
     """
     dest: parser对象的成员属性名称
@@ -109,6 +112,7 @@ def parse_args():
 
     data_config = OrderedDict([
         ('dataset', 'CIFAR10'),
+        ('cifar_path', args.cifar_path)
     ])
 
     run_config = OrderedDict([
@@ -124,6 +128,9 @@ def parse_args():
         ('data_config', data_config),
         ('run_config', run_config),
     ])
+
+    if os.path.exists(data_config['cifar_path']):
+        os.mkdir(data_config['cifar_path'])
 
     return config
 
@@ -295,6 +302,7 @@ def main():
 
     run_config = config['run_config']
     optim_config = config['optim_config']
+    data_config = config['data_config']
 
     # TensorBoard SummaryWriter
     writer = SummaryWriter() if run_config['tensorboard'] else None
@@ -324,7 +332,8 @@ def main():
 
     # data loaders
     train_loader, test_loader = get_loader(optim_config['batch_size'],
-                                           run_config['num_workers'])
+                                           run_config['num_workers'],
+                                           data_config['cifar_path'])
 
     # model
     wrn = load_model(config['model_config'])

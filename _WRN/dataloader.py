@@ -11,7 +11,7 @@ import torchvision.models as models
 import numpy as np
 
 
-def get_loader(batch_size, num_workers):
+def get_loader(batch_size, num_workers,cifar_path):
     mean = np.array([0.4914, 0.4822, 0.4465])
     std = np.array([0.2470, 0.2435, 0.2616])
 
@@ -27,9 +27,9 @@ def get_loader(batch_size, num_workers):
         transforms.Normalize(mean, std)
     ])
 
-    train_dataset = torchvision.datasets.CIFAR10(root=r'E:\python_dataset\cifar-10', train=True, download=True,
+    train_dataset = torchvision.datasets.CIFAR10(root=cifar_path, train=True, download=True,
                                                  transform=train_transform)
-    test_dataset = torchvision.datasets.CIFAR10(root=r'E:\python_dataset\cifar-10', train=False, download=True,
+    test_dataset = torchvision.datasets.CIFAR10(root=cifar_path, train=False, download=True,
                                                 transform=test_transform)
 
     train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True,
