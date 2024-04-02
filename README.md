@@ -11,7 +11,7 @@ The whole codebase is implemented in PyTorch, which makes it easier for you to t
 
 paper: Wide Residual Networks https://doi.org/10.48550/arXiv.1605.07146
 
-![WRN测试集测试结果.png](https://github.com/Charles-yueyue831/ImageClassification/blob/main/01%E5%AE%BD%E6%AE%8B%E5%B7%AE%E7%BD%91%E7%BB%9CWRN/image/WRN%E6%B5%8B%E8%AF%95%E9%9B%86%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C.png?raw=true)
+![WRN测试集测试结果.png](https://github.com/Charles-yueyue831/ImageClassification/blob/main/_WRN/image/WRN%E6%B5%8B%E8%AF%95%E9%9B%86%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C.png?raw=true)
 
 ### Usage example
 
